@@ -39,7 +39,7 @@ class User():
         return metabolism_data
 
 
-FOOD_NUM2 = {'fruits': [2], 'milk': [None], 'starch_A': [None], 'starch_B': [2], 'vegetable': [3]}
+FOOD_NUM2 = {'fruits': [0], 'milk': [0], 'starch_A': [0], 'starch_B': [0], 'vegetable': [0]}
 FOOD_HEAT2 = {'fruits': (100), 'milk': (100), 'starch_A': (350), 'starch_B': (150), 'vegetable': (50)}
 
 
@@ -54,7 +54,9 @@ class high_calorie():
         self.metabolism_data = metabolism_data
 
     def food_list(self):
-        metabolism_data = int(self.metabolism_data - food_list(FOOD_NUM_LIST, FOOD_HEAT_LIST))
+        sums = food_list(FOOD_NUM_LIST, FOOD_HEAT_LIST)
+        metabolism_data = int(self.metabolism_data - sums)
+        print(sums)
         print(metabolism_data)
 
 

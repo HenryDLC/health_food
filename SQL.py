@@ -81,7 +81,7 @@ FOOD = {'beans': (
 
 
 FOOD_NUM_LIST = {'beans': [1], 'egg': [1], 'fruits': [2], 'meat': [1], 'nut': [2],
-                 'milk': [1], 'oil': [1],
+                 'milk': [1], 'oil': [3],
                  'starch_A': [1],
                  'starch_B': [2], 'vegetable': [3]}
 
