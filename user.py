@@ -13,6 +13,7 @@
 
 随机 找出相应分数 食物种类
 '''
+
 from post_info import *
 from num import food_list
 from SQL import FOOD_NUM_LIST, FOOD_HEAT_LIST
