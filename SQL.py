@@ -74,19 +74,31 @@ FOOD = {'beans': (
 # starch_B:主食B-2
 # vegetable:蔬菜类-3
 
-# FOOD_NUM_LIST = {'beans': [3], 'egg': [2], 'fruits': [2], 'meat': [1], 'nut': [2],
-#                  'milk': [1], 'oil': [3],
-#                  'starch_A': [1],
-#                  'starch_B': [2], 'vegetable': [3]}
-
-
-FOOD_NUM_LIST = {'beans': [1], 'egg': [1], 'fruits': [2], 'meat': [1], 'nut': [2],
+# 等于1550大卡
+FOOD_NUM_LIST = {'beans': [3], 'egg': [2], 'fruits': [2], 'meat': [1], 'nut': [2],
                  'milk': [1], 'oil': [3],
                  'starch_A': [1],
                  'starch_B': [2], 'vegetable': [3]}
 
+FOOD_NUM_HIGH = {'beans': [3], 'egg': [2], 'fruits': [2], 'meat': [1], 'nut': [2],
+                 'milk': [1], 'oil': [3],
+                 'starch_A': [1],
+                 'starch_B': [2], 'vegetable': [3]}
 
+# 低于1200大卡 每份数
+FOOD_NUM_LIST_LOW = {'beans': [1], 'egg': [1], 'fruits': [2], 'meat': [1], 'nut': [1],
+                     'milk': [1], 'oil': [1],
+                     'starch_A': [1],
+                     'starch_B': [2], 'vegetable': [3]}
+
+# 每个种类大卡数
 FOOD_HEAT_LIST = {'beans': (50), 'egg': (100), 'fruits': (100), 'meat': (200), 'nut': (50),
                   'milk': (100), 'oil': (50),
                   'starch_A': (350),
                   'starch_B': (150), 'vegetable': (50)}
+
+FOOD_HEAT_LIST_ALLOT = [('fruits', 1), ('vegetable', 1), ('milk', 1), ('starch_B', 1)]
+# 可被二次分配的食物A表
+FOOD_HEAT_LIST_ALLOT_A = {'fruits': (100), 'vegetable': (50), 'milk': (100), 'starch_A': (350)}
+# 可被二次分配的食物B表
+FOOD_HEAT_LIST_ALLOT_B = {'fruits': (100), 'vegetable': (50), 'milk': (100), 'starch_B': (150)}

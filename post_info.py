@@ -11,11 +11,11 @@ class info():
         while 1:
             while 1:
                 gender = input('请输入您的性别:')
-                if gender.lower() in ['男', 'nan']:
+                if gender.lower() in ['男', 'nan', 'man']:
                     gender = '男'
                     sex = 0
                     break
-                elif gender.lower() in ['女', 'nv']:
+                elif gender.lower() in ['女', 'nv', 'woman']:
                     gender = '女'
                     sex = 1
                     break
@@ -57,12 +57,14 @@ class info():
             body_Senso = input("请输入对应字母代码:")
 
             if body_Senso.upper() in ['A', 'B', 'C', 'D', 'E']:
-                body_Senso2 = input("您是否有明显体的育活动(每周4~5次,每次30~60分钟)")
-                if body_Senso2.upper() in ['Y', 'YES', '是']:
+                body_Senso2 = input("您是否有明显体的育活动(每周4~5次,每次30~60分钟):")
+                YES = ['Y', 'YES', 'SHI','y', 'yes', 'shi', '是', '有']
+                NO = ['N', 'no', 'BU', 'N', 'no', 'bu', '不','没有']
+                if body_Senso2 in YES:
                     body_Senso = self.Body_Senso_Data(body_Senso)
                     body_Senso += 0.3
                     return sex, weight, body_Senso
-                elif body_Senso2.upper() in ['N', 'no', '不是']:
+                elif body_Senso2 in NO:
                     body_Senso = self.Body_Senso_Data(body_Senso)
                     return sex, weight, body_Senso
                 else:

@@ -94,6 +94,8 @@ s = Food()
 
 
 def food_list(FOOD_DICT, FOOD_HEAT):
+    # 随机筛取需要的食材类份数 并且将每份大卡添加到food列表里
+
     food = []
 
     print("-----蔬菜类-----")
@@ -122,7 +124,7 @@ def food_list(FOOD_DICT, FOOD_HEAT):
         print(s.meat())
         food.append(FOOD_HEAT['meat'])
 
-    print("-----牛酸奶-----")
+    print("-----牛奶/酸奶-----")
     for i in range(FOOD_DICT['milk'][0]):
         print(s.milk())
         food.append(FOOD_HEAT['milk'])
@@ -150,5 +152,5 @@ def food_list(FOOD_DICT, FOOD_HEAT):
 
 
 # a = food_list(FOOD_NUM_LIST, FOOD_HEAT_LIST)
-# print(a)
-# print(sum(a))
+# # print(a)
+# # print(sum(a))
