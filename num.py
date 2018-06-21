@@ -161,7 +161,6 @@ def food_list(FOOD_DICT, FOOD_HEAT):
 
     return sum(food)
 
-
 # a = food_list(FOOD_NUM_LIST, FOOD_HEAT_LIST)
 # # print(a)
 # # print(sum(a))

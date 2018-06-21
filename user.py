@@ -95,7 +95,6 @@ class Calorie():
         calorie_sums = food_list(FOOD_NUM_HIGH, FOOD_HEAT_LIST)
         return calorie_sums
 
-
     def food_list_high(self):
         # 大于1550大卡 二次分配
         # calorie_sums第一次分配食材大卡总量

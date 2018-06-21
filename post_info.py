@@ -58,8 +58,8 @@ class info():
 
             if body_Senso.upper() in ['A', 'B', 'C', 'D', 'E']:
                 body_Senso2 = input("您是否有明显体的育活动(每周4~5次,每次30~60分钟):")
-                YES = ['Y', 'YES', 'SHI','y', 'yes', 'shi', '是', '有']
-                NO = ['N', 'no', 'BU', 'N', 'no', 'bu', '不','没有']
+                YES = ['Y', 'YES', 'SHI', 'y', 'yes', 'shi', '是', '有']
+                NO = ['N', 'no', 'BU', 'N', 'no', 'bu', '不', '没有']
                 if body_Senso2 in YES:
                     body_Senso = self.Body_Senso_Data(body_Senso)
                     body_Senso += 0.3
