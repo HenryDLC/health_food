@@ -84,7 +84,7 @@ class Tools():
                 FOOD_NUM_LIST_TEMP['milk'][0] -= 1
                 metabolism_surplus += FOOD_HEAT_LIST_ALLOT_B['milk']
 
-            if FOOD_NUM_LIST_TEMP['fruits'][0] >3:
+            if FOOD_NUM_LIST_TEMP['fruits'][0] >4:
                 FOOD_NUM_LIST_TEMP['fruits'][0] -= 1
                 metabolism_surplus += FOOD_HEAT_LIST_ALLOT_B['fruits']
 
