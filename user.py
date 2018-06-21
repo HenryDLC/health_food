@@ -88,7 +88,6 @@ class Tools():
                 FOOD_NUM_LIST_TEMP['fruits'][0] -= 1
                 metabolism_surplus += FOOD_HEAT_LIST_ALLOT_B['fruits']
 
-        print(metabolism_surplus)
         # FOOD_NUM_LIST_TEMP[food_random_name][0] -= 1
         food_list(FOOD_NUM_LIST_TEMP, FOOD_HEAT_LIST_ALLOT_B)
 
