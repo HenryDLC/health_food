@@ -1,5 +1,5 @@
 import random
-from SQL import FOOD, FOOD_NUM_LIST, FOOD_HEAT_LIST
+from SQL import FOOD, FOOD_NUM_HIGH, FOOD_HEAT_LIST
 
 
 class Food(object):
@@ -98,56 +98,67 @@ def food_list(FOOD_DICT, FOOD_HEAT):
 
     food = []
 
-    print("-----蔬菜类-----")
+    if FOOD_DICT['vegetable'][0] != 0:
+        print("-----蔬菜类-----")
     for i in range(FOOD_DICT['vegetable'][0]):
         print(s.vegetable())
         food.append(FOOD_HEAT['vegetable'])
 
-    print("-----豆制类-----")
+    if FOOD_DICT['beans'][0] != 0:
+        print("-----豆制类-----")
     # 获取 种类份数 循环 获取 食材
     for i in range(FOOD_DICT['beans'][0]):
         print(s.beans())
         food.append(FOOD_HEAT['beans'])
 
-    print("-----鸡蛋类-----")
+    if FOOD_DICT['egg'][0] != 0:
+        print("-----鸡蛋类-----")
     for i in range(FOOD_DICT['egg'][0]):
         print(s.egg())
         food.append(FOOD_HEAT['egg'])
 
-    print("-----水果类-----")
+    if FOOD_DICT['fruits'][0] != 0:
+        print("-----水果类-----")
     for i in range(FOOD_DICT['fruits'][0]):
         print(s.fruits())
         food.append(FOOD_HEAT['fruits'])
 
-    print("-----动物肉-----")
+    if FOOD_DICT['meat'][0] != 0:
+        print("-----动物肉-----")
     for i in range(FOOD_DICT['meat'][0]):
         print(s.meat())
         food.append(FOOD_HEAT['meat'])
 
-    print("-----牛奶/酸奶-----")
+    if FOOD_DICT['milk'][0] != 0:
+        print("-----牛奶/酸奶-----")
     for i in range(FOOD_DICT['milk'][0]):
         print(s.milk())
         food.append(FOOD_HEAT['milk'])
 
-    print("-----坚果类-----")
+    if FOOD_DICT['nut'][0] != 0:
+        print("-----坚果类-----")
     for i in range(FOOD_DICT['nut'][0]):
         print(s.nut())
         food.append(FOOD_HEAT['nut'])
 
-    print("-----植物油-----")
+    if FOOD_DICT['oil'][0] != 0:
+        print("-----植物油-----")
     for i in range(FOOD_DICT['oil'][0]):
         print(s.oil())
         food.append(FOOD_HEAT['oil'])
 
-    # print("-----主食A-----")
+    # if FOOD_DICT['starch_A'][0] != 0:
+    #     print("-----主食A-----")
     # for i in range(FOOD_DICT['starch_A'][0]):
     #     print(s.starch_A())
     #     food.append(FOOD_HEAT['starch_A'])
 
-    print("-----主食B-----")
+    if FOOD_DICT['starch_B'][0] != 0:
+        print("-----主食B-----")
     for i in range(FOOD_DICT['starch_B'][0]):
         print(s.starch_B())
         food.append(FOOD_HEAT['starch_B'])
+
     return sum(food)
 
 

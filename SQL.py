@@ -75,11 +75,6 @@ FOOD = {'beans': (
 # vegetable:蔬菜类-3
 
 # 等于1550大卡
-FOOD_NUM_LIST = {'beans': [3], 'egg': [2], 'fruits': [2], 'meat': [1], 'nut': [2],
-                 'milk': [1], 'oil': [3],
-                 'starch_A': [1],
-                 'starch_B': [2], 'vegetable': [3]}
-
 FOOD_NUM_HIGH = {'beans': [3], 'egg': [2], 'fruits': [2], 'meat': [1], 'nut': [2],
                  'milk': [1], 'oil': [3],
                  'starch_A': [1],
@@ -96,6 +91,12 @@ FOOD_HEAT_LIST = {'beans': (50), 'egg': (100), 'fruits': (100), 'meat': (200), '
                   'milk': (100), 'oil': (50),
                   'starch_A': (350),
                   'starch_B': (150), 'vegetable': (50)}
+
+# 二次分配表
+FOOD_NUM_LIST_TEMP = {'beans': [0], 'egg': [0], 'fruits': [0], 'meat': [0], 'nut': [0],
+                      'milk': [0], 'oil': [0],
+                      'starch_A': [0],
+                      'starch_B': [0], 'vegetable': [0]}
 
 FOOD_HEAT_LIST_ALLOT = [('fruits', 1), ('vegetable', 1), ('milk', 1), ('starch_B', 1)]
 # 可被二次分配的食物A表

@@ -51,73 +51,71 @@ class User():
 # milk:奶类-none
 # starch_A:主食A-none
 
-def food_random(items):
-    # 随机找取各类食物
-    total = sum(w for _, w in items)
-    n = uniform(0, total)  # 在饼图扔骰子
-    for x, w in items:  # 遍历找出骰子所在的区间
-        if n < w:
-            break
-        n = n - w
-    return x
+class Tools():
+    def __init__(self, metabolism_data, calorie_sums):
+        self.metabolism_data = metabolism_data
+        self.calorie_sums = calorie_sums
+
+    def food_random(self, items):
+        # 随机找取各类食物
+        total = sum(w for _, w in items)
+        n = uniform(0, total)  # 在饼图扔骰子
+        for x, w in items:  # 遍历找出骰子所在的区间
+            if n < w:
+                break
+            n = n - w
+        return x
+
+    def second_random(self):
+        # 二次分配
+        print("二次分配测试")
+        metabolism_surplus = self.metabolism_data - self.calorie_sums
+        metabolism_surplus = round(metabolism_surplus / 100) * 100
+
+        # 随机每次查找一种食物 相加直到符合基础代谢
+
+        food_random_name = ''
+
+        while metabolism_surplus >= 0:
+            food_random_name = self.food_random(FOOD_HEAT_LIST_ALLOT)
+            metabolism_surplus = metabolism_surplus - FOOD_HEAT_LIST_ALLOT_B[food_random_name]
+            FOOD_NUM_LIST_TEMP[food_random_name][0] += 1
+
+        # FOOD_NUM_LIST_TEMP[food_random_name][0] -= 1
+        food_list(FOOD_NUM_LIST_TEMP, FOOD_HEAT_LIST_ALLOT_B)
+
 
 class Calorie():
-    def __init__(self, metabolism_data):
-        self.metabolism_data = metabolism_data
 
     def food_list(self):
         # 标准分配1550大卡
         # calorie_sums第一次分配食材大卡总量
         # metabolism_data 基础代谢率
         # metabolism_surplus 剩余未分配代谢量
-        calorie_sums = food_list(FOOD_NUM_LIST, FOOD_HEAT_LIST)
+        calorie_sums = food_list(FOOD_NUM_HIGH, FOOD_HEAT_LIST)
+        return calorie_sums
+
 
     def food_list_high(self):
         # 大于1550大卡 二次分配
         # calorie_sums第一次分配食材大卡总量
         # metabolism_data 基础代谢率
         # metabolism_surplus 剩余未分配代谢量
-        calorie_sums = food_list(FOOD_NUM_LIST, FOOD_HEAT_LIST)
 
-        # 二次分配
-        print("二次分配测试")
-        metabolism_surplus = self.metabolism_data - calorie_sums
-        metabolism_surplus = round(metabolism_surplus / 100) * 100
-
-        # 随机每次查找一种食物 相加直到符合基础代谢
-        food_random_name_list = []
-        food_random_name_surplus_list = []
-
-        random_num = 0
-        while 1:
-            if random_num <= metabolism_surplus:
-                food_random_name = food_random(FOOD_HEAT_LIST_ALLOT)
-                food_random_name_list.append(food_random_name)
-
-                food_random_name_surplus_list.append(FOOD_HEAT_LIST_ALLOT_B[food_random_name])
-                random_num = sum(food_random_name_surplus_list)
-
-            elif random_num >= metabolism_surplus:
-                food_random_name_list = []
-                food_random_name_surplus_list = []
-                random_num = 0
-
-            elif random_num == metabolism_surplus:
-                break
-
-        print(food_random_name_list)
-
-
-
-
-
+        calorie_sums = food_list(FOOD_NUM_HIGH, FOOD_HEAT_LIST)
+        return calorie_sums
 
     def food_list_low(self):
-        # 大于1200大卡,二次分配
+        # 低于1200大卡
         # calorie_sums第一次分配食材大卡总量
         # metabolism_data 基础代谢率
         # metabolism_surplus 剩余未分配代谢量
         calorie_sums = food_list(FOOD_NUM_LIST_LOW, FOOD_HEAT_LIST)
+        return calorie_sums
+
+    def food_list_interval(self):
+        calorie_sums = food_list(FOOD_NUM_LIST_LOW, FOOD_HEAT_LIST)
+        return calorie_sums
 
 
 if __name__ == '__main__':
@@ -125,23 +123,30 @@ if __name__ == '__main__':
     sex, weight, body_Senso = info().Body_Senso()
     # 计算用户:基础代谢 活动代谢
     metabolism_data = int(User(sex, weight, body_Senso).metabolism())
+
+    for i in range(3):
+        print('')
     print('您的基础代谢率为:', metabolism_data)
+    print('')
 
     # 如果大于1550大卡 随机分配
     if metabolism_data > 1550:
-        high_calorie = Calorie(metabolism_data)
-        high_calorie.food_list_high()
+        high_calorie = Calorie()
+        calorie_sums = high_calorie.food_list_high()
+        second_random = Tools(metabolism_data, calorie_sums).second_random()
 
     # 如果等于1550大卡 分配标准数量食材
     elif metabolism_data == 1550:
-        high_calorie = Calorie(metabolism_data)
-        high_calorie.food_list()
+        calorie = Calorie()
+        calorie.food_list()
 
-    # 如果低于1550但高于1100 随机分配
+    # 如果低于1550但高于1200 随机分配
     elif (metabolism_data < 1550) and (metabolism_data > 1200):
-        pass
+        high_calorie = Calorie()
+        calorie_sums = high_calorie.food_list_interval()
+        second_random = Tools(metabolism_data, calorie_sums).second_random()
 
     # 如果低于1200 分配最低数量食材
-    elif metabolism_data < 1200:
-        high_calorie = Calorie(metabolism_data)
-        high_calorie.food_list_low()
+    elif metabolism_data <= 1200:
+        low_calorie = Calorie()
+        low_calorie.food_list_low()
