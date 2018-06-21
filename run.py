@@ -9,8 +9,9 @@ if __name__ == '__main__':
 
     for i in range(3):
         print('')
-    print('您的基础代谢率为:', metabolism_data)
+    print('您的每日代谢大约为:', metabolism_data)
     print('')
+
 
     # 如果大于1550大卡 随机分配
     if metabolism_data > 1550:

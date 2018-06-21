@@ -77,9 +77,18 @@ class Tools():
 
         while metabolism_surplus >= 0:
             food_random_name = self.food_random(FOOD_HEAT_LIST_ALLOT)
-            metabolism_surplus = metabolism_surplus - FOOD_HEAT_LIST_ALLOT_B[food_random_name]
+            metabolism_surplus -= FOOD_HEAT_LIST_ALLOT_B[food_random_name]
             FOOD_NUM_LIST_TEMP[food_random_name][0] += 1
 
+            if FOOD_NUM_LIST_TEMP['milk'][0] >3:
+                FOOD_NUM_LIST_TEMP['milk'][0] -= 1
+                metabolism_surplus += FOOD_HEAT_LIST_ALLOT_B['milk']
+
+            if FOOD_NUM_LIST_TEMP['fruits'][0] >3:
+                FOOD_NUM_LIST_TEMP['fruits'][0] -= 1
+                metabolism_surplus += FOOD_HEAT_LIST_ALLOT_B['fruits']
+
+        print(metabolism_surplus)
         # FOOD_NUM_LIST_TEMP[food_random_name][0] -= 1
         food_list(FOOD_NUM_LIST_TEMP, FOOD_HEAT_LIST_ALLOT_B)
 
