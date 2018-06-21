@@ -6,7 +6,7 @@ if __name__ == '__main__':
     sex, weight, body_Senso = info().Body_Senso()
     # 计算用户:基础代谢 活动代谢
     metabolism_data = int(User(sex, weight, body_Senso).metabolism())
-    metabolism_data -= 500
+    metabolism_data -= 250
 
     for i in range(3):
         print('')
